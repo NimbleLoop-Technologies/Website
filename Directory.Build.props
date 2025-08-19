@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <!-- Enable code coverage -->
+    <CollectCoverage>true</CollectCoverage>
+    <CoverletOutputFormat>opencover</CoverletOutputFormat>
+    <CoverletOutput>./coverage.opencover.xml</CoverletOutput>
+    
+    <!-- Exclude certain files from coverage -->
+    <CoverletExclude>[*.Tests]*,[*.Test]*</CoverletExclude>
+    <CoverletExcludeByFile>**/Migrations/**/*.*,**/wwwroot/**/*.*</CoverletExcludeByFile>
+  </PropertyGroup>
+</Project>
