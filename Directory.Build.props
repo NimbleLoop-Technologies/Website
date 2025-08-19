@@ -1,12 +1,12 @@
 <Project>
   <PropertyGroup>
-    <!-- Enable code coverage -->
+    <!-- Enable code coverage for all projects -->
     <CollectCoverage>true</CollectCoverage>
     <CoverletOutputFormat>opencover</CoverletOutputFormat>
     <CoverletOutput>./coverage.opencover.xml</CoverletOutput>
     
-    <!-- Exclude certain files from coverage -->
-    <CoverletExclude>[*.Tests]*,[*.Test]*</CoverletExclude>
-    <CoverletExcludeByFile>**/Migrations/**/*.*,**/wwwroot/**/*.*</CoverletExcludeByFile>
+    <!-- Exclude test projects and certain files from coverage -->
+    <CoverletExclude>[*.Tests]*,[*.Test]*,[NimbleLoop.WebApp.Tests]*,[NimbleLoop.WebApp.Domain.Tests]*,[NimbleLoop.WebApp.Application.Tests]*,[NimbleLoop.WebApp.Db.Tests]*,[NimbleLoop.WebApp.Ui.Tests]*</CoverletExclude>
+    <CoverletExcludeByFile>**/Migrations/**/*.*,**/wwwroot/**/*.*,**/Data/**/*.*</CoverletExcludeByFile>
   </PropertyGroup>
 </Project>

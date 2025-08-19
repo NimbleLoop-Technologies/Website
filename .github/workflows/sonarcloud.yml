@@ -57,25 +57,21 @@ jobs:
           /d:sonar.token="$SONAR_TOKEN" \
           /d:sonar.host.url="https://sonarcloud.io" \
           /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml" \
-          /d:sonar.coverage.exclusions="**/*Test*.cs,**/*Tests.cs,**/Migrations/**" \
-          /d:sonar.exclusions="**/bin/**,**/obj/**,**/wwwroot/lib/**"
+          /d:sonar.coverage.exclusions="**/*Test*.cs,**/*Tests.cs,**/Migrations/**,**/Program.cs,**/*.Client/**,**/wwwroot/**,**/Data/**" \
+          /d:sonar.exclusions="**/bin/**,**/obj/**,**/wwwroot/lib/**,**/Migrations/**,**/Data/**"
 
     - name: Build and Test with Coverage
       shell: bash
       run: |
         dotnet build --no-restore --configuration Release
         
-        # Check if there are any test projects
-        if find . -name "*Test*.csproj" -o -name "*Tests.csproj" | grep -q .; then
-          echo "Test projects found, running tests with coverage..."
-          dotnet test --no-build --configuration Release \
-            --collect:"XPlat Code Coverage" \
-            --results-directory "./TestResults/" \
-            --logger "trx;LogFileName=test_results.trx" \
-            -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
-        else
-          echo "No test projects found, skipping test execution"
-        fi
+        # Run tests with coverage for all test projects following Clean Architecture structure
+        echo "Running tests with coverage for Clean Architecture test projects..."
+        dotnet test --no-build --configuration Release \
+          --collect:"XPlat Code Coverage" \
+          --results-directory "./TestResults/" \
+          --logger "trx;LogFileName=test_results.trx" \
+          -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
 
     - name: End SonarCloud analysis
       env:

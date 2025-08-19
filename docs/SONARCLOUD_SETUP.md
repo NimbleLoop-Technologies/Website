@@ -1,6 +1,6 @@
 # SonarCloud Integration Setup
 
-This repository includes GitHub workflows for automated code quality analysis and code coverage reporting using SonarCloud.
+This repository includes GitHub workflows for automated code quality analysis and code coverage reporting using SonarCloud, integrated with our Clean Architecture solution structure.
 
 ## Required Secrets
 
@@ -26,35 +26,87 @@ The project is configured with the following key:
 
 Make sure the project exists in SonarCloud with these exact identifiers.
 
+## Clean Architecture Integration
+
+The SonarCloud configuration is optimized for our Clean Architecture solution structure:
+
+### Test Projects
+The workflow automatically detects and runs tests from all Clean Architecture test projects:
+- `NimbleLoop.WebApp.Tests` - Legacy integration tests
+- `NimbleLoop.WebApp.Domain.Tests` - Domain layer unit tests
+- `NimbleLoop.WebApp.Application.Tests` - Application layer unit tests  
+- `NimbleLoop.WebApp.Db.Tests` - Database integration tests
+- `NimbleLoop.WebApp.Ui.Tests` - UI component tests (bUnit)
+
+### Coverage Exclusions
+The following are excluded from code coverage analysis:
+- All test projects and test files
+- Database migrations (`**/Migrations/**`)
+- Static web assets (`**/wwwroot/**`)
+- Legacy data models (`**/Data/**`)
+- Client-side projects (`**/*.Client/**`)
+- Application entry points (`**/Program.cs`)
+
 ## Workflow Features
 
 The SonarCloud workflow (`sonarcloud.yml`) includes:
 
-- **Automatic trigger** on pull requests and pushes to master
-- **Code coverage collection** from .NET test projects
-- **Code quality analysis** with SonarCloud scanner
-- **Artifact upload** of test results and coverage reports
+- **Automatic trigger** on pull requests to master branch
+- **Code coverage collection** from all .NET test projects using OpenCover format
+- **Code quality analysis** with SonarCloud scanner for .NET 9.0
+- **Performance optimization** with intelligent caching for SonarCloud packages
+- **Security hardened** environment variable usage to prevent secret expansion
 
 ## Code Coverage
 
-Code coverage is automatically collected when test projects are present. The workflow:
+Code coverage is automatically collected from the comprehensive test suite. The workflow:
 
-1. Detects test projects (files matching `*Test*.csproj` or `*Tests.csproj`)
-2. Runs tests with OpenCover format coverage collection
-3. Uploads coverage data to SonarCloud
-4. Excludes test files and migrations from coverage analysis
+1. Builds the entire Clean Architecture solution
+2. Runs all test projects with coverage collection
+3. Generates OpenCover format reports
+4. Uploads coverage data to SonarCloud
+5. Applies intelligent exclusions for test projects and generated code
 
-## Adding Test Projects
+## Adding New Test Projects
 
-When you add test projects to the solution:
+When adding new test projects to the Clean Architecture solution:
 
-1. Name them with `Test` or `Tests` in the project name (e.g., `NimbleLoop.WebApp.Tests`)
-2. The workflow will automatically detect and run them
-3. Coverage reports will be generated and sent to SonarCloud
+1. Follow the established naming convention: `NimbleLoop.WebApp.[Layer].Tests`
+2. Reference the appropriate layer project (Domain, Application, Db, etc.)
+3. Include required test framework packages (xUnit, bUnit for UI tests)
+4. The workflow will automatically detect and include them in coverage analysis
 
-## Files Added/Modified
+### Example Test Project Structure
+```
+NimbleLoop.WebApp.NewLayer.Tests/
+├── NimbleLoop.WebApp.NewLayer.Tests.csproj
+├── UnitTests/
+│   └── EntityTests.cs
+└── IntegrationTests/
+    └── ServiceTests.cs
+```
 
-- `.github/workflows/sonarcloud.yml` - Main SonarCloud integration workflow
-- `sonar-project.properties` - SonarCloud project configuration
-- `Directory.Build.props` - Code coverage settings for all projects
+## Files Configuration
+
+The SonarCloud integration includes:
+
+- `.github/workflows/sonarcloud.yml` - Clean Architecture optimized workflow
+- `sonar-project.properties` - Project configuration with Clean Architecture exclusions
+- `Directory.Build.props` - Global code coverage settings for all projects
 - `docs/SONARCLOUD_SETUP.md` - This documentation file
+
+## Testing Commands
+
+To verify the configuration locally:
+
+```bash
+# Build the solution
+dotnet restore
+dotnet build --no-restore
+
+# Run tests with coverage (matching CI workflow)
+dotnet test --configuration Release \
+  --collect:"XPlat Code Coverage" \
+  --results-directory "./TestResults/" \
+  -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=opencover
+```
