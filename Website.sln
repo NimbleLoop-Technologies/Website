@@ -1,11 +1,31 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36408.4 d17.14
+VisualStudioVersion = 17.14.36408.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NimbleLoop.WebApp", "NimbleLoop.WebApp\NimbleLoop.WebApp\NimbleLoop.WebApp.csproj", "{F983237D-D015-4DA0-A5ED-3EE763511AFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NimbleLoop.WebApp.Client", "NimbleLoop.WebApp\NimbleLoop.WebApp.Client\NimbleLoop.WebApp.Client.csproj", "{DB19E44B-7967-43BF-BF2F-C55F384BBAB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NimbleLoop.WebApp.Db", "NimbleLoop.WebApp.Db\NimbleLoop.WebApp.Db.csproj", "{5FBE1E90-4208-47FC-BE50-007CFF22819E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NimbleLoop.WebApp.Application", "NimbleLoop.WebApp.Application\NimbleLoop.WebApp.Application.csproj", "{8BDBCCCD-5557-4B3D-ADED-7726E742C2E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NimbleLoop.WebApp.Domain", "NimbleLoop.WebApp.Domain\NimbleLoop.WebApp.Domain.csproj", "{E645E9C1-99E9-4126-85CF-5B92CFBC9B11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NimbleLoop.WebApp.Shared", "NimbleLoop.WebApp.Shared\NimbleLoop.WebApp.Shared.csproj", "{C2FFFA0A-0C2E-4980-BDBA-05367F681A65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{2526E394-BA81-4602-8D90-71CDB921BBEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NimbleLoop.WebApp.Application.Tests", "NimbleLoop.WebApp.Application.Tests\NimbleLoop.WebApp.Application.Tests.csproj", "{648C6D0F-312E-4508-BB05-A475B81F1B17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NimbleLoop.WebApp.Domain.Tests", "NimbleLoop.WebApp.Domain.Tests\NimbleLoop.WebApp.Domain.Tests.csproj", "{B8D15FAE-F2E2-4A26-9B28-2ED1D3C5E73E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NimbleLoop.WebApp.Db.Tests", "NimbleLoop.WebApp.Db.Tests\NimbleLoop.WebApp.Db.Tests.csproj", "{F11DAF69-EA0F-41C3-86E4-5D629B1499C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NimbleLoop.WebApp.Ui.Tests", "NimbleLoop.WebApp.Ui.Tests\NimbleLoop.WebApp.Ui.Tests.csproj", "{AE785C25-1C4E-40D8-8DF7-681D22274673}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +41,49 @@ Global
 		{DB19E44B-7967-43BF-BF2F-C55F384BBAB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB19E44B-7967-43BF-BF2F-C55F384BBAB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB19E44B-7967-43BF-BF2F-C55F384BBAB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FBE1E90-4208-47FC-BE50-007CFF22819E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FBE1E90-4208-47FC-BE50-007CFF22819E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FBE1E90-4208-47FC-BE50-007CFF22819E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FBE1E90-4208-47FC-BE50-007CFF22819E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BDBCCCD-5557-4B3D-ADED-7726E742C2E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BDBCCCD-5557-4B3D-ADED-7726E742C2E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BDBCCCD-5557-4B3D-ADED-7726E742C2E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BDBCCCD-5557-4B3D-ADED-7726E742C2E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E645E9C1-99E9-4126-85CF-5B92CFBC9B11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E645E9C1-99E9-4126-85CF-5B92CFBC9B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E645E9C1-99E9-4126-85CF-5B92CFBC9B11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E645E9C1-99E9-4126-85CF-5B92CFBC9B11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2FFFA0A-0C2E-4980-BDBA-05367F681A65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2FFFA0A-0C2E-4980-BDBA-05367F681A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2FFFA0A-0C2E-4980-BDBA-05367F681A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2FFFA0A-0C2E-4980-BDBA-05367F681A65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{648C6D0F-312E-4508-BB05-A475B81F1B17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{648C6D0F-312E-4508-BB05-A475B81F1B17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{648C6D0F-312E-4508-BB05-A475B81F1B17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{648C6D0F-312E-4508-BB05-A475B81F1B17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8D15FAE-F2E2-4A26-9B28-2ED1D3C5E73E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8D15FAE-F2E2-4A26-9B28-2ED1D3C5E73E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8D15FAE-F2E2-4A26-9B28-2ED1D3C5E73E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8D15FAE-F2E2-4A26-9B28-2ED1D3C5E73E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F11DAF69-EA0F-41C3-86E4-5D629B1499C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F11DAF69-EA0F-41C3-86E4-5D629B1499C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F11DAF69-EA0F-41C3-86E4-5D629B1499C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F11DAF69-EA0F-41C3-86E4-5D629B1499C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE785C25-1C4E-40D8-8DF7-681D22274673}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE785C25-1C4E-40D8-8DF7-681D22274673}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE785C25-1C4E-40D8-8DF7-681D22274673}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE785C25-1C4E-40D8-8DF7-681D22274673}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F983237D-D015-4DA0-A5ED-3EE763511AFD} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{DB19E44B-7967-43BF-BF2F-C55F384BBAB1} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{648C6D0F-312E-4508-BB05-A475B81F1B17} = {2526E394-BA81-4602-8D90-71CDB921BBEF}
+		{B8D15FAE-F2E2-4A26-9B28-2ED1D3C5E73E} = {2526E394-BA81-4602-8D90-71CDB921BBEF}
+		{F11DAF69-EA0F-41C3-86E4-5D629B1499C8} = {2526E394-BA81-4602-8D90-71CDB921BBEF}
+		{AE785C25-1C4E-40D8-8DF7-681D22274673} = {2526E394-BA81-4602-8D90-71CDB921BBEF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3356FDDF-0CBC-4A2B-9A88-4C084797CC53}
