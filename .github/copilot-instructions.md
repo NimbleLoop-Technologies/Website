@@ -9,9 +9,9 @@ Always reference these instructions first and fallback to search or bash command
 ### Bootstrap and Build Process
 - **CRITICAL**: Install .NET 9.0 SDK (default system has .NET 8.0 which will fail):
   - `wget https://dot.net/v1/dotnet-install.sh && chmod +x dotnet-install.sh`
-  - `./dotnet-install.sh --version 9.0.100` -- takes 8 seconds. NEVER CANCEL.
+  - `./dotnet-install.sh --version 9.0.8` -- takes 8 seconds. NEVER CANCEL.
   - `export PATH="/home/runner/.dotnet:$PATH"`
-  - Verify: `dotnet --version` should return `9.0.100`
+  - Verify: `dotnet --version` should return `9.0.8`
 
 - **Build the application**:
   - `dotnet restore` -- takes 15 seconds. NEVER CANCEL. Set timeout to 60+ minutes.
@@ -153,7 +153,7 @@ Website.sln                           # Visual Studio solution file
 ```bash
 # Complete setup from scratch
 wget https://dot.net/v1/dotnet-install.sh && chmod +x dotnet-install.sh
-./dotnet-install.sh --version 9.0.100
+./dotnet-install.sh --version 9.0.8
 export PATH="/home/runner/.dotnet:$PATH"
 dotnet restore
 dotnet build --no-restore
