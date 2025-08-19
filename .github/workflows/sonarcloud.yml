@@ -3,8 +3,6 @@ name: SonarCloud Analysis
 on:
   pull_request:
     branches: [ "master" ]
-  push:
-    branches: [ "master" ]
 
 jobs:
   sonarcloud:
@@ -56,7 +54,7 @@ jobs:
         ./.sonar/scanner/dotnet-sonarscanner begin \
           /k:"NimbleLoop-Technologies_Website" \
           /o:"nimbleloop-technologies" \
-          /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
+          /d:sonar.token="$SONAR_TOKEN" \
           /d:sonar.host.url="https://sonarcloud.io" \
           /d:sonar.cs.opencover.reportsPaths="**/coverage.opencover.xml" \
           /d:sonar.coverage.exclusions="**/*Test*.cs,**/*Tests.cs,**/Migrations/**" \
@@ -84,7 +82,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       shell: bash
-      run: ./.sonar/scanner/dotnet-sonarscanner end /d:sonar.token="${{ secrets.SONAR_TOKEN }}"
+      run: ./.sonar/scanner/dotnet-sonarscanner end /d:sonar.token="$SONAR_TOKEN"
 
     - name: Upload test results
       uses: actions/upload-artifact@v4

@@ -12,7 +12,7 @@ This repository contains the NimbleLoop Technologies website built with ASP.NET 
 
 ### Prerequisites
 - .NET 9.0 SDK
-- SQL Server (for Entity Framework)
+- MongoDB (for Entity Framework)
 
 ### Building
 ```bash
