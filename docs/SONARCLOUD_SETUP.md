@@ -86,14 +86,32 @@ NimbleLoop.WebApp.NewLayer.Tests/
     └── ServiceTests.cs
 ```
 
+## SonarScanner for MSBuild Compatibility
+
+Starting with SonarScanner for .NET v8+, the scanner no longer supports `sonar-project.properties` files. All configuration must be passed as command-line parameters to the `dotnet-sonarscanner begin` command.
+
+This integration uses the recommended approach:
+- All SonarCloud configuration is defined in the workflow file
+- Parameters are passed directly to the scanner via `/d:` flags
+- The `sonar.projectBaseDir` property is explicitly set to ensure correct file resolution
+- Exclusions and test patterns are configured inline for maximum compatibility
+
+### Migration from sonar-project.properties
+
+If you previously used a `sonar-project.properties` file, you'll need to:
+1. Remove the `sonar-project.properties` file from your repository
+2. Move all configuration to the workflow file as `/d:` parameters
+3. Ensure all paths are relative to the project base directory
+
 ## Files Configuration
 
 The SonarCloud integration includes:
 
-- `.github/workflows/sonarcloud.yml` - Clean Architecture optimized workflow
-- `sonar-project.properties` - Project configuration with Clean Architecture exclusions
+- `.github/workflows/sonarcloud.yml` - Clean Architecture optimized workflow with inline configuration
 - `Directory.Build.props` - Global code coverage settings for all projects
 - `docs/SONARCLOUD_SETUP.md` - This documentation file
+
+**Note**: Configuration is embedded directly in the workflow file as command-line parameters to the SonarScanner for MSBuild, which is the recommended approach for .NET projects.
 
 ## Testing Commands
 
