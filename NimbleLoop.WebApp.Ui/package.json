@@ -1,0 +1,32 @@
+{
+  "name": "nimbleloop.webapp.ui",
+  "version": "1.0.0",
+  "description": "Ui components library for NimbleLoop",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "gulp build-css",
+    "build-global": "gulp build-global",
+    "build-isolation": "gulp build-isolation",
+    "clean-css": "gulp clean-css",
+    "clean-global": "gulp clean-global", 
+    "clean-isolation": "gulp clean-isolation",
+    "list-files": "gulp list",
+    "verify-paths": "gulp verify"
+  },
+  "author": "Umair Tahir",
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^5.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
+    "del": "^7.1.0",
+    "glob": "^10.3.10",
+    "gulp-postcss": "^10.0.0",
+    "gulp-rename": "^2.0.0",
+    "npx": "^3.0.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.12"
+  }
+}

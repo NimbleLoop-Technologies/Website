@@ -361,3 +361,7 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/NimbleLoop.WebApp.Ui/package-lock.json
+/NimbleLoop.WebApp.Ui/Components/**/*.razor.css
+/NimbleLoop.WebApp.Ui/wwwroot/css/dist/**
+/NimbleLoop.WebApp.Ui/Components/*.razor.css

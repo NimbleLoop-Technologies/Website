@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.8" />
+  </ItemGroup>
+
+  <!-- Tailwind CSS Build Integration -->
+  
+  <!-- Before Build: Install npm dependencies and build CSS -->
+  <Target Name="BuildTailwindCss" BeforeTargets="BeforeBuild">
+    <Message Text="Building Tailwind CSS..." Importance="high" />
+    
+    <!-- Install npm dependencies if node_modules doesn't exist -->
+    <Exec Command="npm install" Condition="!Exists('node_modules')" />
+    
+    <!-- Build all CSS (global + isolation) -->
+    <Exec Command="npm run build-css" />
+    
+    <Message Text="Tailwind CSS build completed." Importance="high" />
+  </Target>
+
+  <!-- Before Clean: Clean generated CSS files -->
+  <Target Name="CleanTailwindCss" BeforeTargets="BeforeClean">
+    <Message Text="Cleaning Tailwind CSS files..." Importance="high" />
+    
+    <!-- Clean generated CSS files if npm is available -->
+    <Exec Command="npm run clean-css" ContinueOnError="true" Condition="Exists('package.json')" />
+    
+    <Message Text="Tailwind CSS cleanup completed." Importance="high" />
+  </Target>
+
+  <!-- Control what gets included/excluded from the project -->
+  <ItemGroup>
+    <!-- Exclude build artifacts and source files from default inclusion -->
+    <Content Remove="wwwroot/css/src/**" />
+    <Content Remove="wwwroot/css/dist/**" />
+    <Content Remove="Components/**/*.razor.tw.css" />
+    
+    <!-- Exclude Node.js and build files -->
+    <Content Remove="package.json" />
+    <Content Remove="package-lock.json" />
+    <Content Remove="gulpfile.js" />
+    <Content Remove="tailwind.config.js" />
+    <Content Remove="tailwind.isolation.config.js" />
+    <Content Remove="postcss.config.mjs" />
+    <Content Remove="node_modules/**" />
+    
+    <!-- Exclude documentation files -->
+    <Content Remove="QUICK-START.md" />
+  </ItemGroup>
+
+  <!-- Explicitly include source files as None to preserve them but not publish them -->
+  <ItemGroup>
+    <None Include="wwwroot/css/src/**/*.css" />
+    <None Include="Components/**/*.razor.tw.css" />
+  </ItemGroup>
+
+  <!-- Include generated CSS files for runtime -->
+  <ItemGroup>
+    <!-- Include generated global CSS as Content for web serving -->
+    <Content Include="wwwroot/css/dist/style.css" Condition="Exists('wwwroot/css/dist/style.css')" />
+  </ItemGroup>
+  
+  <!-- Exclude .tw.css files from being treated as scoped CSS -->
+  <ItemGroup>
+    <ScopedCssInput Remove="Components/**/*.razor.tw.css" />
+  </ItemGroup>
+
+</Project>

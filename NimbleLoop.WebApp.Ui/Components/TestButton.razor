@@ -1,0 +1,10 @@
+<button class="test-button test-button--@Variant test-button--@Size" @onclick="OnClick">
+    @ChildContent
+</button>
+
+@code {
+    [Parameter] public string Variant { get; set; } = "primary";
+    [Parameter] public string Size { get; set; } = "medium";
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+    [Parameter] public EventCallback OnClick { get; set; }
+}

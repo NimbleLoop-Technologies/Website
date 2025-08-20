@@ -1,0 +1,28 @@
+﻿/* Button component styles */
+@reference "tailwindcss";
+
+.test-button {
+    @apply inline-flex items-center rounded-md bg-blue-600 px-4 py-2 font-medium text-white;
+    @apply hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none;
+    @apply transition-colors duration-200;
+}
+
+.test-button--primary {
+    @apply bg-blue-600 hover:bg-blue-700;
+}
+
+.test-button--secondary {
+    @apply bg-gray-600 text-white hover:bg-gray-700;
+}
+
+.test-button--danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+}
+
+.test-button--large {
+    @apply px-6 py-3 text-lg;
+}
+
+.test-button--small {
+    @apply px-2 py-1 text-sm;
+}
