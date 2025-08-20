@@ -9,7 +9,7 @@
     "build-global": "gulp build-global",
     "build-isolation": "gulp build-isolation",
     "clean-css": "gulp clean-css",
-    "clean-global": "gulp clean-global", 
+    "clean-global": "gulp clean-global",
     "clean-isolation": "gulp clean-isolation",
     "list-files": "gulp list",
     "verify-paths": "gulp verify"
@@ -17,6 +17,7 @@
   "author": "Umair Tahir",
   "license": "MIT",
   "dependencies": {
+    "@tailwindplus/elements": "^1.0.9",
     "gulp": "^5.0.1"
   },
   "devDependencies": {
