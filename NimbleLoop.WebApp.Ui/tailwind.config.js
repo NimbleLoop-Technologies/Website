@@ -14,20 +14,6 @@ export default {
     "!./Components/**/*.tw.css",
     "!./**/*.tw.css"
   ],
-  theme: {
-    extend: {
-      // Add custom theme extensions here if needed
-      colors: {
-        // Custom colors for NimbleLoop brand
-        'nimble-blue': {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          500: '#3b82f6',
-          900: '#1e3a8a'
-        }
-      }
-    },
-  },
   plugins: [
     // Add Tailwind plugins here if needed
   ],
