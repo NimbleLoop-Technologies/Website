@@ -2,25 +2,42 @@
 
 /* Import Roboto Variable Font */
 @font-face {
-  font-family: 'RobotoVariable';
-  src: url('/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype-variations');
-  font-weight: 100 900;
-  font-stretch: 75% 100%;
-  font-style: normal;
-  font-display: swap;
+	font-family: 'RobotoVariable';
+	src: url('/_content/NimbleLoop.WebApp.Ui/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('truetype-variations');
+	font-weight: 100 900;
+	font-stretch: 75% 100%;
+	font-style: normal;
+	font-display: swap;
 }
 
 @font-face {
-  font-family: 'RobotoVariable';
-  src: url('/fonts/Roboto/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype-variations');
-  font-weight: 100 900;
-  font-stretch: 75% 100%;
-  font-style: italic;
-  font-display: swap;
+	font-family: 'RobotoVariable';
+	src: url('/_content/NimbleLoop.WebApp.Ui/fonts/Roboto/Roboto-Italic-VariableFont_wdth,wght.ttf') format('truetype-variations');
+	font-weight: 100 900;
+	font-stretch: 75% 100%;
+	font-style: italic;
+	font-display: swap;
 }
 
 @theme {
-  --font-sans: RobotoVariable, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-sans--font-feature-settings: normal;
+	--font-sans: RobotoVariable, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--font-sans--font-feature-settings: normal;
+	--color-primary: #003366;
+	--color-secondary: #008080;
+	--color-foreground: #fafafa;
+	--color-light: #fafafa;
+	--color-dark: #2f3135;
+	--color-info1: #e3ebf4;
+	--color-info2: #dfeded;
+	--color-muted: #cacaca;
 }
 
+@theme dark {
+	--color-primary: #ffa500;
+	--color-secondary: #32cd32;
+	--color-foreground: #2f3135;
+	--color-light: #2f3135;
+	--color-dark: #fafafa;
+	--color-info1: #003366;
+	--color-info2: #008080;
+}
