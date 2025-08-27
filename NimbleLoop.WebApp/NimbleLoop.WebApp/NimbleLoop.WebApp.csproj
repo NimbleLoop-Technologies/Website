@@ -10,6 +10,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\NimbleLoop.WebApp.Application\NimbleLoop.WebApp.Application.csproj" />
     <ProjectReference Include="..\..\NimbleLoop.WebApp.Db\NimbleLoop.WebApp.Db.csproj" />
+    <ProjectReference Include="..\..\NimbleLoop.WebApp.Ui\NimbleLoop.WebApp.Ui.csproj" />
     <ProjectReference Include="..\NimbleLoop.WebApp.Client\NimbleLoop.WebApp.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.8" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.8" />
@@ -19,7 +20,7 @@
   </ItemGroup>
 
 	<ItemGroup>
-		<InternalsVisibleTo Include="NimbleLoop.WebApp.Ui.Tests"/>
+		<InternalsVisibleTo Include="NimbleLoop.WebApp.Ui.Tests" />
 	</ItemGroup>
 
 </Project>

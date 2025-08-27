@@ -1,4 +1,4 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 /* Import Roboto Variable Font */
 @font-face {
@@ -23,21 +23,205 @@
 	--font-sans: RobotoVariable, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 	--font-sans--font-feature-settings: normal;
 	--color-primary: #003366;
+	--color-primary-dark: #ffa500;
 	--color-secondary: #008080;
-	--color-foreground: #fafafa;
-	--color-light: #fafafa;
-	--color-dark: #2f3135;
+	--color-secondary-dark: #32cd32;
+	--color-foreground: #2f3135;
+	--color-foreground-dark: #fafafa;
+	--color-bg-light: #fafafa;
+	--color-bg-dark: #2f3135;
 	--color-info1: #e3ebf4;
+	--color-info1-dark: #003366;
 	--color-info2: #dfeded;
+	--color-info2-dark: #008080;
 	--color-muted: #cacaca;
+	--color-error: #dc2626;
+	--color-error-light: #fee2e2;
+	--color-error-dark: #ef4444;
+	--color-warning: #f59e0b;
+	--color-warning-light: #fef3c7;
+	--color-warning-dark: #fbbf24;
+}
+@layer base {
+	body {
+		@apply h-screen w-screen max-w-screen bg-bg-light text-foreground dark:bg-bg-dark dark:text-foreground-dark;
+	}
+}
+/* Blazor Error UI Styling */
+#blazor-error-ui {
+	@apply fixed top-0 right-0 left-0 z-50;
+	@apply -translate-y-full transform transition-transform duration-300 ease-in-out;
+	@apply bg-error font-sans text-foreground dark:text-foreground-dark;
+	@apply border-b-4 border-error shadow-lg;
+	@apply backdrop-blur-sm;
 }
 
-@theme dark {
-	--color-primary: #ffa500;
-	--color-secondary: #32cd32;
-	--color-foreground: #2f3135;
-	--color-light: #2f3135;
-	--color-dark: #fafafa;
-	--color-info1: #003366;
-	--color-info2: #008080;
+#blazor-error-ui.show {
+	@apply translate-y-0;
 }
+
+/* Error UI Container */
+#blazor-error-ui .error-container {
+	@apply flex items-center justify-between;
+	@apply px-4 py-4 sm:px-6 lg:px-8;
+	@apply mx-auto max-w-7xl;
+}
+
+/* Error Message Content */
+#blazor-error-ui .error-content {
+	@apply flex items-center space-x-3;
+	@apply min-w-0 flex-1;
+}
+
+#blazor-error-ui .error-icon {
+	@apply h-6 w-6 flex-shrink-0;
+	@apply text-foreground dark:text-foreground-dark;
+}
+
+#blazor-error-ui .error-message {
+	@apply text-sm font-medium sm:text-base;
+	@apply truncate;
+}
+
+#blazor-error-ui .error-details {
+	@apply text-xs opacity-90 sm:text-sm;
+	@apply mt-1 hidden sm:block;
+}
+
+/* Error Actions */
+#blazor-error-ui .error-actions {
+	@apply flex items-center space-x-2 sm:space-x-3;
+	@apply ml-4 flex-shrink-0;
+}
+
+	#blazor-error-ui .reload {
+		@apply inline-flex items-center;
+		@apply px-3 py-2 text-sm font-medium;
+		@apply bg-bg-light/20 hover:bg-bg-light/30;
+		@apply border border-bg-light/30 hover:border-bg-light/50;
+		@apply rounded-md transition-all duration-200;
+		@apply focus:ring-2 focus:ring-bg-light focus:ring-offset-2 focus:ring-offset-error focus:outline-none;
+		@apply text-foreground no-underline dark:text-foreground-dark;
+	}
+
+#blazor-error-ui .reload:hover {
+	@apply scale-105 transform;
+	@apply shadow-lg;
+}
+
+	#blazor-error-ui .dismiss {
+		@apply inline-flex items-center justify-center;
+		@apply h-8 w-8 sm:h-10 sm:w-10;
+		@apply bg-bg-light/20 hover:bg-bg-light/30;
+		@apply border border-bg-light/30 hover:border-bg-light/50;
+		@apply rounded-full transition-all duration-200;
+		@apply cursor-pointer select-none;
+		@apply focus:ring-2 focus:ring-bg-light focus:ring-offset-2 focus:ring-offset-error focus:outline-none;
+		@apply text-lg text-foreground sm:text-xl dark:text-foreground-dark;
+	}
+
+#blazor-error-ui .dismiss:hover {
+	@apply scale-110 rotate-90 transform;
+	@apply shadow-lg;
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 640px) {
+	#blazor-error-ui .error-container {
+		@apply flex-col space-y-3;
+		@apply items-start;
+	}
+	
+	#blazor-error-ui .error-actions {
+		@apply w-full justify-between;
+		@apply ml-0;
+	}
+	
+	#blazor-error-ui .reload {
+		@apply flex-1 justify-center;
+	}
+}
+
+/* Animation Variants */
+#blazor-error-ui.slide-down {
+	@apply animate-pulse;
+}
+
+#blazor-error-ui.shake {
+	animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+	0%, 100% { transform: translateX(0) translateY(0); }
+	10%, 30%, 50%, 70%, 90% { transform: translateX(-2px) translateY(0); }
+	20%, 40%, 60%, 80% { transform: translateX(2px) translateY(0); }
+}
+
+/* Progress Indicator for Auto-Reload */
+#blazor-error-ui .progress-bar {
+	@apply absolute bottom-0 left-0 h-1;
+	@apply bg-bg-light/50;
+	@apply transition-all duration-100 ease-linear;
+}
+
+/* Enhanced Error States */
+#blazor-error-ui.critical {
+	@apply border-red-700 bg-red-600;
+}
+
+#blazor-error-ui.warning {
+	@apply border-warning bg-warning text-foreground dark:text-foreground-dark;
+}
+
+	#blazor-error-ui.warning .reload,
+	#blazor-error-ui.warning .dismiss {
+		@apply border-bg-dark/30 text-foreground dark:text-foreground-dark;
+		@apply bg-bg-dark/10 hover:bg-bg-dark/20;
+		@apply focus:ring-bg-dark focus:ring-offset-warning;
+	}
+
+/* Accessibility Enhancements */
+#blazor-error-ui[role="alert"] {
+	@apply sr-only;
+}
+
+#blazor-error-ui .sr-only-content {
+	@apply sr-only;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+	#blazor-error-ui {
+		@apply border-4 border-bg-light;
+	}
+	
+	#blazor-error-ui .reload,
+	#blazor-error-ui .dismiss {
+		@apply border-2 border-bg-light;
+		@apply bg-transparent;
+	}
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+	#blazor-error-ui {
+		@apply transition-none;
+	}
+	
+	#blazor-error-ui .reload:hover,
+	#blazor-error-ui .dismiss:hover {
+		@apply transform-none;
+	}
+	
+	#blazor-error-ui.shake {
+		animation: none;
+	}
+}
+
+/* Print Styles */
+@media print {
+	#blazor-error-ui {
+		@apply hidden;
+	}
+}
+

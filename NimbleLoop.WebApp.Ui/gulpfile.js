@@ -73,18 +73,13 @@ function buildGlobalCss() {
  * This only processes classes within each individual .tw.css file
  */
 function buildIsolationCss() {
-    return gulp.src(paths.razorTwCss)
+    return gulp.src(paths.razorTwCss, { base: '.' })
         .pipe(postcss(isolationPostcssPlugins))
         .pipe(rename(function (pathObj) {
             // Transform filename: Component1.razor.tw.css -> Component1.razor.css
             pathObj.basename = pathObj.basename.replace('.razor.tw', '.razor');
         }))
-        .pipe(gulp.dest(function (file) {
-            // Output to the same directory as the source file
-            const sourcePath = file.history[0]; // Original file path
-            const sourceDir = path.dirname(sourcePath);
-            return sourceDir;
-        }));
+        .pipe(gulp.dest('.'));
 }
 
 /**
@@ -176,4 +171,4 @@ exports['build-css'] = buildAll;
 exports['clean-css'] = cleanAll;
 
 // Default task
-exports.default = buildAll;
+exports.default = buildAll;exports.default = buildAll;
