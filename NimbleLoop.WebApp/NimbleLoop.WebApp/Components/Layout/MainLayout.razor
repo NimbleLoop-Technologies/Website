@@ -1,8 +1,8 @@
-﻿@using NimbleLoop.WebApp.Ui.Components.Layouts
+﻿@using NimbleLoop.WebApp.Ui.Components.Layout
+@using NimbleLoop.WebApp.Ui.Components.Layouts
 @inherits LayoutComponentBase
 
-
-<StackedLayout Body="Body" />
+<Header NavigationLinks="_navigationLinks" />
 
 <div id="blazor-error-ui" data-nosnippet role="alert" aria-live="assertive">
   <div class="error-container">
@@ -31,3 +31,13 @@
     Error notification: The application has encountered an unhandled error. Use the reload button to refresh the page or the dismiss button to hide this message.
   </div>
 </div>
+
+@code {
+  private readonly Dictionary<string, string> _navigationLinks = new()
+  {
+    { "Home", "/" },
+    { "Counter", "/counter" },
+    { "Fetch Data", "/fetchdata" },
+    { "Auth Required", "/auth" }
+  };
+}
