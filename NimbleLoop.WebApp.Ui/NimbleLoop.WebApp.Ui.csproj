@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Components\Layout\" />
+    <Folder Include="Components\Home\" />
   </ItemGroup>
 
 </Project>
