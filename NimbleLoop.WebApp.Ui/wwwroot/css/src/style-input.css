@@ -70,6 +70,26 @@
 	@apply rounded-md bg-secondary px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-secondary-shade-light focus-visible:outline-secondary-shade-dark focus-visible:outline-2 focus-visible:outline-offset-2 dark:bg-secondary-dark dark:hover:bg-secondary-dark-shade-light dark:focus-visible:outline-primary-dark-shade-dark;
 }
 
+.icon-primary {
+	@apply text-primary dark:text-primary-dark;
+}
+
+.icon-secondary {
+	@apply text-secondary dark:text-secondary-dark;
+}
+
+.heading-primary {
+	@apply text-primary dark:text-primary-dark;
+}
+
+.heading-secondary {
+	@apply text-secondary dark:text-secondary-dark;
+}
+
+.section-heading-secondary {
+	@apply text-base/7 font-semibold text-secondary dark:text-secondary-dark;
+}
+
 /* Blazor Error UI Styling */
 #blazor-error-ui {
 	@apply fixed top-0 right-0 left-0 z-50;
