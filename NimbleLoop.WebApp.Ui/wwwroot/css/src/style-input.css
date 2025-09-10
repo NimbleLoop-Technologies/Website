@@ -23,9 +23,21 @@
 	--font-sans: RobotoVariable, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 	--font-sans--font-feature-settings: normal;
 	--color-primary: #003366;
+	--color-primary-shade-light: #66b2ff;
+	--color-primary-shade-lighter: #cce5ff;
+	--color-primary-shade-dark: #004c99;
+	--color-primary-shade-darker: #001933;
 	--color-primary-dark: #ffa500;
+	--color-primary-dark-shade-light: #ffc966;
+	--color-primary-dark-shade-lighter: #ffedcc;
+	--color-primary-dark-shade-dark: #996300;
+	--color-primary-dark-shade-darker: #332100;
 	--color-secondary: #008080;
+	--color-secondary-shade-light: #00ffff;
+	--color-secondary-shade-dark: #003333;
 	--color-secondary-dark: #32cd32;
+	--color-secondary-dark-shade-light: #84e184;
+	--color-secondary-dark-shade-dark: #1e7b1e;
 	--color-foreground: #2f3135;
 	--color-foreground-dark: #fafafa;
 	--color-bg-light: #fafafa;
@@ -49,6 +61,15 @@
 		@apply h-screen w-screen max-w-screen bg-white dark:bg-gray-900;
 	}
 }
+
+.btn-primary {
+	@apply rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary-shade-light focus-visible:outline-primary-shade-dark focus-visible:outline-2 focus-visible:outline-offset-2 dark:bg-primary-dark dark:hover:bg-primary-dark-shade-light dark:focus-visible:outline-primary-dark-shade-dark;
+}
+
+.btn-secondary {
+	@apply rounded-md bg-secondary px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-secondary-shade-light focus-visible:outline-secondary-shade-dark focus-visible:outline-2 focus-visible:outline-offset-2 dark:bg-secondary-dark dark:hover:bg-secondary-dark-shade-light dark:focus-visible:outline-primary-dark-shade-dark;
+}
+
 /* Blazor Error UI Styling */
 #blazor-error-ui {
 	@apply fixed top-0 right-0 left-0 z-50;
