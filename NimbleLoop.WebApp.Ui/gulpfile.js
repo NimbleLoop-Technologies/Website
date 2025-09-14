@@ -171,4 +171,4 @@ exports['build-css'] = buildAll;
 exports['clean-css'] = cleanAll;
 
 // Default task
-exports.default = buildAll;exports.default = buildAll;
+exports.default = buildAll;
