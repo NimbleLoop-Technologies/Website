@@ -1,0 +1,20 @@
+﻿/* Component-specific styles using Tailwind utilities */
+@reference "tailwindcss";
+
+.component1-container {
+    @apply rounded-lg bg-blue-100 p-4 shadow-md;
+}
+
+.component1-title {
+    @apply mb-2 text-2xl font-bold text-blue-800;
+}
+
+.component1-content {
+    @apply leading-relaxed text-gray-700;
+}
+
+/* Custom styles that can coexist with Tailwind */
+.component1-special {
+    background: linear-gradient(45deg, #3b82f6, #1e40af);
+    @apply rounded p-2 text-white;
+}
