@@ -90,6 +90,10 @@
 	@apply text-base/7 font-semibold text-secondary dark:text-secondary-dark;
 }
 
+.input-secondary {
+	@apply bg-white text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-secondary sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-gray-700 dark:placeholder:text-gray-500 dark:focus:outline-secondary-dark;
+}
+
 /* Blazor Error UI Styling */
 #blazor-error-ui {
 	@apply fixed top-0 right-0 left-0 z-50;
