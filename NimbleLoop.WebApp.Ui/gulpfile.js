@@ -130,7 +130,7 @@ async function verifyIsolationPaths() {
             const cssExists = cssFiles.includes(expectedCssFile);
             
             console.log(`  ${twFile}`);
-            console.log(`  -> ${expectedCssFile} ${cssExists ? '?' : '?'}`);
+            console.log(`  -> ${expectedCssFile} ${cssExists ? 'exists' : 'not exists'}`);
             
             if (cssExists) {
                 const twDir = path.dirname(twFile);
