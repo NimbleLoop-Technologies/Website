@@ -56,44 +56,46 @@
 	--color-white: var(--color-bg-light);
 	--color-black: var(--color-bg-dark);
 }
+
 @layer base {
 	body {
 		@apply h-screen w-screen max-w-screen bg-white dark:bg-gray-900;
 	}
 }
 
-.btn-primary {
-	@apply rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary-shade-light focus-visible:outline-primary-shade-dark focus-visible:outline-2 focus-visible:outline-offset-2 dark:bg-primary-dark dark:hover:bg-primary-dark-shade-light dark:focus-visible:outline-primary-dark-shade-dark;
-}
+@layer utilities {
+	.btn-primary {
+		@apply rounded-md bg-primary px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-primary-shade-light focus-visible:outline-primary-shade-dark focus-visible:outline-2 focus-visible:outline-offset-2 dark:bg-primary-dark dark:hover:bg-primary-dark-shade-light dark:focus-visible:outline-primary-dark-shade-dark;
+	}
 
-.btn-secondary {
-	@apply rounded-md bg-secondary px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-secondary-shade-light focus-visible:outline-secondary-shade-dark focus-visible:outline-2 focus-visible:outline-offset-2 dark:bg-secondary-dark dark:hover:bg-secondary-dark-shade-light dark:focus-visible:outline-primary-dark-shade-dark;
-}
+	.btn-secondary {
+		@apply rounded-md bg-secondary px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-secondary-shade-light focus-visible:outline-secondary-shade-dark focus-visible:outline-2 focus-visible:outline-offset-2 dark:bg-secondary-dark dark:hover:bg-secondary-dark-shade-light dark:focus-visible:outline-primary-dark-shade-dark;
+	}
 
-.icon-primary {
-	@apply text-primary dark:text-primary-dark;
-}
+	.icon-primary {
+		@apply text-primary dark:text-primary-dark;
+	}
 
-.icon-secondary {
-	@apply text-secondary dark:text-secondary-dark;
-}
+	.icon-secondary {
+		@apply text-secondary dark:text-secondary-dark;
+	}
 
-.heading-primary {
-	@apply text-primary dark:text-primary-dark;
-}
+	.heading-primary {
+		@apply text-primary dark:text-primary-dark;
+	}
 
-.heading-secondary {
-	@apply text-secondary dark:text-secondary-dark;
-}
+	.heading-secondary {
+		@apply text-secondary dark:text-secondary-dark;
+	}
 
-.section-heading-secondary {
-	@apply text-base/7 font-semibold text-secondary dark:text-secondary-dark;
-}
+	.section-heading-secondary {
+		@apply text-base/7 font-semibold text-secondary dark:text-secondary-dark;
+	}
 
-.input-secondary {
-	@apply bg-white text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-secondary sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-gray-700 dark:placeholder:text-gray-500 dark:focus:outline-secondary-dark;
+	.input-secondary {
+		@apply bg-white text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-secondary sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-gray-700 dark:placeholder:text-gray-500 dark:focus:outline-secondary-dark;
+	}
 }
-
 /* Blazor Error UI Styling */
 #blazor-error-ui {
 	@apply fixed top-0 right-0 left-0 z-50;
@@ -103,43 +105,43 @@
 	@apply backdrop-blur-sm;
 }
 
-#blazor-error-ui.show {
-	@apply translate-y-0;
-}
+	#blazor-error-ui.show {
+		@apply translate-y-0;
+	}
 
-/* Error UI Container */
-#blazor-error-ui .error-container {
-	@apply flex items-center justify-between;
-	@apply px-4 py-4 sm:px-6 lg:px-8;
-	@apply mx-auto max-w-7xl;
-}
+	/* Error UI Container */
+	#blazor-error-ui .error-container {
+		@apply flex items-center justify-between;
+		@apply px-4 py-4 sm:px-6 lg:px-8;
+		@apply mx-auto max-w-7xl;
+	}
 
-/* Error Message Content */
-#blazor-error-ui .error-content {
-	@apply flex items-center space-x-3;
-	@apply min-w-0 flex-1;
-}
+	/* Error Message Content */
+	#blazor-error-ui .error-content {
+		@apply flex items-center space-x-3;
+		@apply min-w-0 flex-1;
+	}
 
-#blazor-error-ui .error-icon {
-	@apply h-6 w-6 flex-shrink-0;
-	@apply text-foreground dark:text-foreground-dark;
-}
+	#blazor-error-ui .error-icon {
+		@apply h-6 w-6 flex-shrink-0;
+		@apply text-foreground dark:text-foreground-dark;
+	}
 
-#blazor-error-ui .error-message {
-	@apply text-sm font-medium sm:text-base;
-	@apply truncate;
-}
+	#blazor-error-ui .error-message {
+		@apply text-sm font-medium sm:text-base;
+		@apply truncate;
+	}
 
-#blazor-error-ui .error-details {
-	@apply text-xs opacity-90 sm:text-sm;
-	@apply mt-1 hidden sm:block;
-}
+	#blazor-error-ui .error-details {
+		@apply text-xs opacity-90 sm:text-sm;
+		@apply mt-1 hidden sm:block;
+	}
 
-/* Error Actions */
-#blazor-error-ui .error-actions {
-	@apply flex items-center space-x-2 sm:space-x-3;
-	@apply ml-4 flex-shrink-0;
-}
+	/* Error Actions */
+	#blazor-error-ui .error-actions {
+		@apply flex items-center space-x-2 sm:space-x-3;
+		@apply ml-4 flex-shrink-0;
+	}
 
 	#blazor-error-ui .reload {
 		@apply inline-flex items-center;
@@ -151,10 +153,10 @@
 		@apply text-foreground no-underline dark:text-foreground-dark;
 	}
 
-#blazor-error-ui .reload:hover {
-	@apply scale-105 transform;
-	@apply shadow-lg;
-}
+		#blazor-error-ui .reload:hover {
+			@apply scale-105 transform;
+			@apply shadow-lg;
+		}
 
 	#blazor-error-ui .dismiss {
 		@apply inline-flex items-center justify-center;
@@ -167,10 +169,10 @@
 		@apply text-lg text-foreground sm:text-xl dark:text-foreground-dark;
 	}
 
-#blazor-error-ui .dismiss:hover {
-	@apply scale-110 rotate-90 transform;
-	@apply shadow-lg;
-}
+		#blazor-error-ui .dismiss:hover {
+			@apply scale-110 rotate-90 transform;
+			@apply shadow-lg;
+		}
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 640px) {
@@ -178,12 +180,12 @@
 		@apply flex-col space-y-3;
 		@apply items-start;
 	}
-	
+
 	#blazor-error-ui .error-actions {
 		@apply w-full justify-between;
 		@apply ml-0;
 	}
-	
+
 	#blazor-error-ui .reload {
 		@apply flex-1 justify-center;
 	}
@@ -199,9 +201,17 @@
 }
 
 @keyframes shake {
-	0%, 100% { transform: translateX(0) translateY(0); }
-	10%, 30%, 50%, 70%, 90% { transform: translateX(-2px) translateY(0); }
-	20%, 40%, 60%, 80% { transform: translateX(2px) translateY(0); }
+	0%, 100% {
+		transform: translateX(0) translateY(0);
+	}
+
+	10%, 30%, 50%, 70%, 90% {
+		transform: translateX(-2px) translateY(0);
+	}
+
+	20%, 40%, 60%, 80% {
+		transform: translateX(2px) translateY(0);
+	}
 }
 
 /* Progress Indicator for Auto-Reload */
@@ -241,12 +251,12 @@
 	#blazor-error-ui {
 		@apply border-4 border-bg-light;
 	}
-	
-	#blazor-error-ui .reload,
-	#blazor-error-ui .dismiss {
-		@apply border-2 border-bg-light;
-		@apply bg-transparent;
-	}
+
+		#blazor-error-ui .reload,
+		#blazor-error-ui .dismiss {
+			@apply border-2 border-bg-light;
+			@apply bg-transparent;
+		}
 }
 
 /* Reduced Motion Support */
@@ -254,15 +264,15 @@
 	#blazor-error-ui {
 		@apply transition-none;
 	}
-	
-	#blazor-error-ui .reload:hover,
-	#blazor-error-ui .dismiss:hover {
-		@apply transform-none;
-	}
-	
-	#blazor-error-ui.shake {
-		animation: none;
-	}
+
+		#blazor-error-ui .reload:hover,
+		#blazor-error-ui .dismiss:hover {
+			@apply transform-none;
+		}
+
+		#blazor-error-ui.shake {
+			animation: none;
+		}
 }
 
 /* Print Styles */
@@ -271,4 +281,3 @@
 		@apply hidden;
 	}
 }
-
