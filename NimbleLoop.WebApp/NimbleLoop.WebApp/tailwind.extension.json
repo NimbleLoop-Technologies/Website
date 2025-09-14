@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/theron-wang/VS2022-Editor-Support-for-Tailwind-CSS/refs/heads/main/tailwind.extension.schema.json",
   "BuildFiles": [
     {
-      "Input": "..\\..\\nimbleloop.webapp.ui\\wwwroot\\css\\src\\style-input.css",
+      "Input": "..\\..\\NimbleLoop.WebApp.Ui\\wwwroot\\css\\src\\style-input.css",
       "Output": "..\\..\\NimbleLoop.WebApp.Ui\\wwwroot\\css\\dist\\style.css",
       "Behavior": "Default"
     }
