@@ -95,6 +95,10 @@
 	.input-secondary {
 		@apply bg-white text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-secondary sm:text-sm/6 dark:bg-white/5 dark:text-white dark:outline-gray-700 dark:placeholder:text-gray-500 dark:focus:outline-secondary-dark;
 	}
+
+	.radio-secondary {
+		@apply relative mt-1 size-4 appearance-none rounded-full border border-gray-300 before:absolute before:inset-1 before:rounded-full before:bg-white checked:border-secondary checked:bg-secondary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-secondary disabled:border-gray-300 disabled:bg-gray-100 dark:border-gray-600 forced-colors:appearance-auto not-checked:before:hidden disabled:before:bg-gray-400 dark:checked:border-secondary-dark dark:disabled:border-white/10 dark:before:bg-white dark:checked:bg-secondary-dark dark:disabled:bg-gray-800/50 dark:focus-visible:outline-secondary-dark forced-colors:before:hidden dark:disabled:before:bg-gray-600;
+	}
 }
 /* Blazor Error UI Styling */
 #blazor-error-ui {
