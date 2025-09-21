@@ -76,8 +76,5 @@
   <ItemGroup>
     <ScopedCssInput Remove="Components/**/*.razor.tw.css" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Components\Layout\" />
-  </ItemGroup>
 
 </Project>
